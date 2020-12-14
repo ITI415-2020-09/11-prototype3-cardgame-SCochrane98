@@ -18,7 +18,8 @@ public class SlotDef
     public Vector2 stagger;
 }
 
-public class Layout : MonoBehaviour {
+public class Layout : MonoBehaviour
+{
     public PT_XMLReader xmlr; // Just like Deck, this has a PT_XMLReader
     public PT_XMLHashtable xml; // This variable is for faster xml access
     public Vector2 multiplier; // The offset of the tableau's center
@@ -28,7 +29,7 @@ public class Layout : MonoBehaviour {
     public SlotDef discardPile;
     // This holds all of the possible names for the layers set by layerID
 
-    public string[] sortingLayerNames = new string[] { "Row0", "Row1", "Row2", "Row3", "Row4", "Row5", "Row6", "Discard", "Draw" };
+    [System.NonSerialized] public string[] sortingLayerNames = new string[] { "Row0", "Row1", "Row2", "Row3", "Row4", "Row5", "Row6", "Discard", "Draw" };
 
     // This function is called to read in the LayoutXML.xml file
     public void ReadLayout(string xmlText)
@@ -46,7 +47,7 @@ public class Layout : MonoBehaviour {
         //slotsX is used as a shortcut to all the <slot>s
         PT_XMLHashList slotsX = xml["slot"];
 
-        for (int i=0; i<slotsX.Count; i++)
+        for (int i = 0; i < slotsX.Count; i++)
         {
             tSD = new SlotDef(); // Create a new SlotDef instance
             if (slotsX[i].HasAtt("type"))

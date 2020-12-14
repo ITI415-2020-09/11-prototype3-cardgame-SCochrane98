@@ -12,7 +12,8 @@ public enum eFSState
     post
 }
 
-public class FloatingScore : MonoBehaviour {
+public class FloatingScore : MonoBehaviour
+{
     [Header("Set Dynamically")]
     public eFSState state = eFSState.idle;
 
